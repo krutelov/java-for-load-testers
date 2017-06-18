@@ -98,14 +98,23 @@
 - Static import
 - Static initializers
 
+### Overloading
+- Methods overloading
+
+#### Lab: Procedure design for application
+- FR: Chat application: send and receive messages, analytics, log messages, store messages for history, commands. 
+- Architecture: client app, server app.
+- TODO: classes and stubs for methods w/o parameters. 
+
 ### Call stack and Heap
 - Local variables
+- Parameters as local variables
 - Primitive vs Reference types
 - Call stack
 - Method parameter passing styles
- 
-### Overloading
-- Methods overloading
+
+#### Lab: Components API
+- Introduce parameters
 
 ## Built-in primitive types and operators (4/1)
 ### Primitives
@@ -116,6 +125,9 @@
 - Primitive types casting: widening and narrowing
 - Types overflow
 
+#### Lab: Components API
+- Parameters types recap
+
 ### Arithmetic operators
 - Unary operators
 - Binary operators
@@ -124,6 +136,9 @@
 - Increment and decrement: prefix and postfix forms
 - Short ?= form
 - Overloaded "+"
+
+#### Lab: Analytics component
+- FR: count all messages, count most frequent command. 
 
 ### Logic operators
 - Operators
@@ -139,11 +154,17 @@
 - if
 - switch
 
+#### Lab: Commands component
+- Implement stubs for main commands 
+
 ### Cycles
 - for
 - do/while
 - while/do
 - foreach
+
+#### Lab: Retry policy for transport 
+- Implement error code and retrying policy for transport
 
 ### Procedure metrics
 - Cyclomatic complexity
@@ -165,10 +186,16 @@
 - Multi-dimension arrays
 - _foreach_ recap
 
+#### Lab: multi-client application
+- FR: Miltiply users can access application 
+
 ### Varargs
 - Method declaration recap
 - Varargs as arrays
 - Limitations
+
+#### Lab: Start-up parameters
+- FR: show users messages that set up as start-up parameter vararg 
 
 ### Strings
 - Literals
@@ -177,6 +204,9 @@
 - String interning
 - StringBuffer and StringBuilder
 - Compiler optimizations for "+"
+
+#### Lab: Implement commands
+- Implement commands parser
 
 ### Primitive wrappers
 - Wrappers
@@ -214,6 +244,9 @@
 - Enums syntax
 - Using with _switch_
 
+#### Lab: Commands as enums
+- Implement command system as enums 
+
 ### Encapsulation
 - Access modifiers
 - Code reuse with _this_
@@ -224,6 +257,9 @@
 - Constructors
 - Object Initializers
 
+#### Lab: Commands as classes
+- Implement command system as objects
+
 ### Inheritance
 - Inheritance implementation
 - Code reuse with _super_
@@ -231,7 +267,10 @@
 - Overriding constraints
 - Constructors with inheritance issue
 - Abstract classes
-- Template Method design pattern 
+- Template Method design pattern
+
+#### Lab: Commands as classes
+- Reuse code with TM pattern
 
 ### Interfaces
 - Interface vs Class
@@ -247,10 +286,16 @@
 - Type casting
 - Sate/Strategy design patterns
 
+#### Lab: Commands as classes
+- Implement command system as State pattern
+
 ### Creational Patterns
 - Creator
 - Factories: factory method, simple factory, abstract factory
 - DI
+
+#### Lab: System testability 
+- Implement DI for main components
 
 ## Generics (1/0.5)
 - Generics as design style
@@ -278,6 +323,9 @@
 - Standard Java exception types
 - Designing own exception types system
 
+#### Lab: Fail-over for system
+- Implement exceptions type system and recovery
+
 ## System library (2/1)
 - System
 - Runtime
@@ -286,6 +334,9 @@
 ### Object
 - toS
 - hashCode and equals, their contract 
+
+#### Lab: Messages as classes
+- Implement messages with toS, eq, hc
 
 ## Annotations and Reflection API intro (1/0)
 - Annotations
@@ -302,60 +353,19 @@
 - Comparable and Comparator
 - Maps and implementations
 - Utility classes Collections and Arrays
+
+#### Lab: Multi-user application with collections
+- Implement chat rooms
+
 - Stream API
+
+#### Lab: Multi-user application with collections
+- Implement chat rooms with stream API
+
 - Queues
 
-## IO (6/2)
-### File IO
-- java.io.File
-- RandomAccessFile
-- Stream classes
-- InputStreams and OutputStreams
-- Readers and Writers
-- Stream chaining
-
-### Serialization API
-- Serializable
-- Serialization API
-
-### Network IO
-- Network API
-- Sockets and ServerSocket API
-- Welcome to hell no.1! CAP theorem
-
-### Intro to non-blocking/async IO
-- Why async IO?
-- Key concepts of NIO2
-
-## Multi-threading in Java (8/3)
-### Parallelism
-- Thread definition
-- Thread start: 3 options
-- Thread states begin
-- Priorities
-- Daemons
-- Thread API
-- Blocking operations
-- Thread states at whole
-
-### [Server IO Design Patterns](https://www.dre.vanderbilt.edu/%7Eschmidt/PDF/OOCP-tutorial4.pdf)
-- Connector/Acceptor
-- Proxy
-- Pro-actor
-- Handler
-
-### Concurrency
-- Welcome to hell no.2! Concurrency.
-- Thread safety and data race
-- Thread synchronization
-- _synchronized_ section
-- Lock API
-- New thread states
-- Objects thread safety: collections example
-- wait() / notify()
-- Deadlocks
-- Intro to java.util.concurrent
-- Welcome to hell no.3! JMM.
+#### Lab: implement async request handling
+- Queue as incoming request buffer
 
 ## Unit testing with JUnit (6/2)
 - Assertions in Java
@@ -381,6 +391,73 @@
 ### TDD and ATDD
 - Intro to TDD
 - Intro to ATDD
+
+#### Lab: Test coverage
+- Unit tests coverage ≥ 50%
+
+## IO (6/2)
+### File IO
+- java.io.File
+- RandomAccessFile
+- Stream classes
+- InputStreams and OutputStreams
+- Readers and Writers
+- Stream chaining
+
+#### Lab: Client application
+- Implement client application console IO
+
+### Serialization API
+- Serializable
+- Serialization API
+
+### Network IO
+- Network API
+- Sockets and ServerSocket API
+- Welcome to hell no.1! CAP theorem
+
+#### Lab: Client-server architecture 
+- Implement network transport
+
+### Intro to non-blocking/async IO
+- Why async IO?
+- Key concepts of NIO2
+
+## Multi-threading in Java (8/3)
+### Parallelism
+- Thread definition
+- Thread start: 3 options
+- Thread states begin
+- Priorities
+- Daemons
+- Thread API
+- Blocking operations
+- Thread states at whole
+
+#### Lab: Multi-user application
+- Implement parallel client connection and handling
+
+### [Server IO Design Patterns](https://www.dre.vanderbilt.edu/%7Eschmidt/PDF/OOCP-tutorial4.pdf)
+- Connector/Acceptor
+- Proxy
+- Pro-actor
+- Handler
+
+### Concurrency
+- Welcome to hell no.2! Concurrency.
+- Thread safety and data race
+- Thread synchronization
+- _synchronized_ section
+- Lock API
+- New thread states
+- Objects thread safety: collections example
+- wait() / notify()
+- Deadlocks
+- Intro to java.util.concurrent
+- Welcome to hell no.3! JMM.
+
+#### Lab: Data correctness
+- Implement thread-safe multi-user application
 
 ## Web Services (6/2)
 - Key concepts
@@ -409,6 +486,9 @@
 - Service stubs
 - Implementing calls with JSR 
 
+#### Lab: REST transport
+- Refactor own client-server protocol to REST
+
 ## Test doubles for REST services (2/1)
 - System integration concepts
 - Integration testing
@@ -416,3 +496,6 @@
 ### Implementing integration tests with WireMock
 - Test structure
 - WireMock API
+
+#### Lab: Integration testing for client
+- Implement integration test for client with server test doubler
