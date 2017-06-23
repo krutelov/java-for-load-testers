@@ -20,6 +20,10 @@ public class Chat {
     public static void start(int port) {
         System.out.println(port);
     }
+
+    public static void sendMessage(String message) {
+
+    }
 }
 
 class ChatRunner {
@@ -27,6 +31,9 @@ class ChatRunner {
         //.....
         start();
         start(9999);
+
+        Chat.sendMessage("kkk");
+        Chat.getMessages();
     }
 }
 
