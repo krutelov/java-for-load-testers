@@ -14,5 +14,6 @@ public class CalculatorApp {
             double b = Double.parseDouble(args[i+2]);
             System.out.println(executeCommand(command, a, b));
         }
+
     }
 }

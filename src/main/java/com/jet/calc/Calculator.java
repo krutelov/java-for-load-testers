@@ -145,8 +145,8 @@ public class Calculator {
             case "div": return div(a, b);
             case "mult": return mult(a, b);
             case "sub": return sub(a, b);
+            default: return 0;
         }
-        return 0;
     }
 
 }
