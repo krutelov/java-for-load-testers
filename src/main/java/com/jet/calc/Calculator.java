@@ -136,4 +136,17 @@ public class Calculator {
         return value;
     }
 
+    /**
+     * Executes commands
+     */
+    public static double executeCommand(String command, double a, double b) {
+        switch (command) {
+            case "add": return add(a, b);
+            case "div": return div(a, b);
+            case "mult": return mult(a, b);
+            case "sub": return sub(a, b);
+        }
+        return 0;
+    }
+
 }

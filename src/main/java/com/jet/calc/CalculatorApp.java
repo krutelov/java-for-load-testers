@@ -8,22 +8,11 @@ import static com.jet.calc.Calculator.*;
 public class CalculatorApp {
 
     public static void main(String[] args) {
-
-        System.out.println("Integers:");
-        System.out.println(add(1,8));
-        System.out.println(getSavedValue());
-        addToMemory();
-        System.out.println(getSavedValue());
-        System.out.println(modulo(-24));
-        System.out.println("\n");
-
-        System.out.println("Float point:");
-        System.out.println(add(1.3,1.9));
-        System.out.println(add(12.3,1.9));
-        System.out.println(getSavedValue());
-        addToMemory();
-        System.out.println(getSavedValue());
-        System.out.println(modulo(-24.12));
-        System.out.println("\n");
+        for (int i = 0; i < args.length; i += 3){
+            String command = args[i];
+            double a = Double.parseDouble(args[i+1]);
+            double b = Double.parseDouble(args[i+2]);
+            System.out.println(executeCommand(command, a, b));
+        }
     }
 }
