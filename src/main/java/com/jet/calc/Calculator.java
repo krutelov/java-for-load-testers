@@ -6,6 +6,7 @@ package com.jet.calc;
 public class Calculator {
     private static double lastResult = 0;
     private static double savedValue = 0;
+    private static StringBuilder log = new StringBuilder("");
 
     /**
      * returns sum of a and b
@@ -149,4 +150,15 @@ public class Calculator {
         }
     }
 
+    /**
+     * Log
+     */
+    public static void setLog (String command, double a, double b){
+        String currentLog = a + " " + command + " "+ b + " = " + lastResult + "\n";
+        log.append(currentLog);
+    }
+
+    public static StringBuilder getLog(){
+        return log;
+    }
 }
