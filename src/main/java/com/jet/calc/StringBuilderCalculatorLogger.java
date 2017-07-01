@@ -3,7 +3,7 @@ package com.jet.calc;
 /**
  * Keeps history of commands
  */
-public class CommandLog {
+public class StringBuilderCalculatorLogger {
     private StringBuilder log = new StringBuilder("");
 
     public void setLog (String command, double a, double b, double result){

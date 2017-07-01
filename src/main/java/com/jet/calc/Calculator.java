@@ -6,7 +6,11 @@ package com.jet.calc;
 public class Calculator {
     private double lastResult = 0;
     private double savedValue = 0;
-    private CommandLog log = new CommandLog();
+    private CalculatorLogger log;
+
+    public void setLog(CalculatorLogger log) {
+        this.log = log;
+    }
 
     /**
      * returns sum of a and b
