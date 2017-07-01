@@ -1,6 +1,5 @@
 package com.jet.calc;
 
-import static com.jet.calc.Calculator.*;
 import static java.lang.Double.*;
 
 /**
@@ -9,13 +8,27 @@ import static java.lang.Double.*;
 public class CalculatorApp {
 
     public static void main(String[] args) {
-        for (int i = 0; i < args.length; i += 3){
+        Calculator calc1 = new Calculator();
+        Calculator calc2 = new Calculator();
+
+        for (int i = 0; i < 6; i += 3){
             String command = args[i];
             double a = parseDouble(args[i+1]);
             double b = parseDouble(args[i+2]);
-            executeCommand(command, a, b);
-            setLog(command, a, b);
+            calc1.executeCommand(command, a, b);
         }
-        System.out.println(getLog());
+        for (String logLine : calc1.getLog()){
+            System.out.println(logLine);
+        }
+
+        for (int i = 6; i < args.length; i += 3){
+            String command = args[i];
+            double a = parseDouble(args[i+1]);
+            double b = parseDouble(args[i+2]);
+            calc2.executeCommand(command, a, b);
+        }
+        for (String logLine : calc2.getLog()){
+            System.out.println(logLine);
+        }
     }
 }

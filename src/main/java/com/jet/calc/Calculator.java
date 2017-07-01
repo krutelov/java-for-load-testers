@@ -4,21 +4,21 @@ package com.jet.calc;
  * Calculator with simple math actions
  */
 public class Calculator {
-    private static double lastResult = 0;
-    private static double savedValue = 0;
-    private static StringBuilder log = new StringBuilder("");
+    private double lastResult = 0;
+    private double savedValue = 0;
+    private CommandLog log = new CommandLog();
 
     /**
      * returns sum of a and b
      */
-    public static int add (int a, int b) {
+    public int add (int a, int b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a + b);
         return limitValue(a + b);
     }
 
-    public static double add (double a, double b) {
+    public double add (double a, double b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a + b);
@@ -28,14 +28,14 @@ public class Calculator {
     /**
      * returns difference of a and b
      */
-    public static int sub (int a, int b) {
+    public int sub (int a, int b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a - b);
         return limitValue(a - b);
     }
 
-    public static double sub (double a, double b) {
+    public double sub (double a, double b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a - b);
@@ -45,14 +45,14 @@ public class Calculator {
     /**
      * returns multiplication of a and b
      */
-    public static int mult (int a, int b) {
+    public int mult (int a, int b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a * b);
         return limitValue(a * b);
     }
 
-    public static double mult (double a, double b) {
+    public double mult (double a, double b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a * b);
@@ -62,14 +62,14 @@ public class Calculator {
     /**
      * returns division a to b
      */
-    public static int div (int a, int b) {
+    public int div (int a, int b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a / b);
         return limitValue(a / b);
     }
 
-    public static double div (double a, double b) {
+    public double div (double a, double b) {
         a = limitValue(a);
         b = limitValue(b);
         lastResult = limitValue(a / b);
@@ -79,35 +79,35 @@ public class Calculator {
     /**
      * Saves last result to lastResult
      */
-    public static void saveToMemory () {
+    public void saveToMemory () {
         savedValue = limitValue(lastResult);
     }
 
     /**
      * returns sum of last result and
      */
-    public static void addToMemory() {
+    public void addToMemory() {
         savedValue = limitValue(lastResult + savedValue);
     }
 
     /**
      * returns sum of a and b
      */
-    public static double getSavedValue() {
+    public double getSavedValue() {
         return savedValue;
     }
 
     /**
      * modulo
      */
-    public static int modulo (int value){
+    public int modulo (int value){
         if (value < 0) {
             value = -value;
         }
         return value;
     }
 
-    public static double modulo (double value){
+    public double modulo (double value){
         if (value < 0) {
             value = -value;
         }
@@ -117,7 +117,7 @@ public class Calculator {
     /**
      * limit -10 10
      */
-    public static int limitValue (int value){
+    public int limitValue (int value){
         if (value < -10) {
             value = -10;
         } else if (value > 10) {
@@ -127,7 +127,7 @@ public class Calculator {
         return value;
     }
 
-    public static double limitValue (double value){
+    public double limitValue (double value){
         if (value < -10) {
             value = -10;
         } else if (value > 10) {
@@ -140,25 +140,21 @@ public class Calculator {
     /**
      * Executes commands
      */
-    public static double executeCommand(String command, double a, double b) {
+    public double executeCommand(String command, double a, double b) {
         switch (command) {
-            case "add": return add(a, b);
-            case "div": return div(a, b);
-            case "mult": return mult(a, b);
-            case "sub": return sub(a, b);
+            case "add": log.setLog(command, a, b, add(a,b));
+                return add(a, b);
+            case "div": log.setLog(command, a, b, div(a,b));
+                return div(a, b);
+            case "mult": log.setLog(command, a, b, mult(a,b));
+                return mult(a, b);
+            case "sub": log.setLog(command, a, b, sub(a,b));
+                return sub(a, b);
             default: return 0;
         }
     }
 
-    /**
-     * Log
-     */
-    public static void setLog (String command, double a, double b){
-        String currentLog = a + " " + command + " "+ b + " = " + lastResult + "\n";
-        log.append(currentLog);
-    }
-
-    public static StringBuilder getLog(){
-        return log;
+    public String[] getLog(){
+        return log.getLog();
     }
 }
