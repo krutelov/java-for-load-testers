@@ -3,12 +3,24 @@ package com.jet.calc;
 /**
  * Keeps history of commands
  */
-public class StringBuilderCalculatorLogger {
-    private StringBuilder log = new StringBuilder("");
+public class StringBuilderCalculatorLogger implements CalculatorLogger{
+    private StringBuilder log;
 
-    public void setLog (String command, double a, double b, double result){
-        String currentLog = a + " " + command + " " + b + " = " + result + "\n";
+    public StringBuilderCalculatorLogger() {
+        this.log = new StringBuilder();
+    }
+
+    public StringBuilderCalculatorLogger(StringBuilder log) {
+        this.log = log;
+    }
+
+    public void addToLog(String command, double a, double b, double result){
+        String currentLog = buildCommand(command, a, b, result);
         log.append(currentLog);
+    }
+
+    protected String buildCommand(String command, double a, double b, double result) {
+        return a + " " + command + " " + b + " = " + result + "\n";
     }
 
     public String[] getLog(){

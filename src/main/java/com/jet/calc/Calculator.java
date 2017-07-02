@@ -146,13 +146,13 @@ public class Calculator {
      */
     public double executeCommand(String command, double a, double b) {
         switch (command) {
-            case "add": log.setLog(command, a, b, add(a,b));
+            case "add": log.addToLog(command, a, b, add(a,b));
                 return add(a, b);
-            case "div": log.setLog(command, a, b, div(a,b));
+            case "div": log.addToLog(command, a, b, div(a,b));
                 return div(a, b);
-            case "mult": log.setLog(command, a, b, mult(a,b));
+            case "mult": log.addToLog(command, a, b, mult(a,b));
                 return mult(a, b);
-            case "sub": log.setLog(command, a, b, sub(a,b));
+            case "sub": log.addToLog(command, a, b, sub(a,b));
                 return sub(a, b);
             default: return 0;
         }

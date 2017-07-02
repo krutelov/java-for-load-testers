@@ -9,7 +9,7 @@ public class CalculatorApp {
 
     public static void main(String[] args) {
         Calculator calc1 = new Calculator();
-        calc1.setLog(new StubLogger());
+        calc1.setLog(new DecoratingStringBuilderCalculatorLog(new StringBuilder("[DI]\n")));
 
         for (int i = 0; i < args.length; i += 3){
             String command = args[i];
