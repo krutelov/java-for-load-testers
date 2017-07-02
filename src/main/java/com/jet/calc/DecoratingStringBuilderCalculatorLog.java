@@ -1,7 +1,7 @@
 package com.jet.calc;
 
 /**
- * Created by a1 on 02/07/2017.
+ * Adds decoration to log line
  */
 public class DecoratingStringBuilderCalculatorLog extends StringBuilderCalculatorLogger{
     public DecoratingStringBuilderCalculatorLog() {
